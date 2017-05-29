@@ -23,4 +23,11 @@ urlpatterns = [
     url(r'^login/',scan_views.login),
     url(r'^capture/',scan_views.capture),
     url(r'^getscan/',scan_views.getScan),
+    url(r'^run/',scan_views.run),
+    url(r'^capture_data/',scan_views.capture_data),
+    url(r'^detail_data/',scan_views.detail_data),
+    url(r'^del_data/(?P<id>\d+)/',scan_views.del_data),
+    url(r'^flush_data/',scan_views.flush_data),
+    url(r'^sqli/(?P<taskid>\w+)',scan_views.sqli),
+    url(r'^sqli_detail/(?P<taskid>\w+)',scan_views.sqli_detail),
 ]

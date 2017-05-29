@@ -1,0 +1,11 @@
+GET  http://tajs.qq.com/stats?sId=36241650  HTTP/1.1
+Host: tajs.qq.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: identity
+Referer: http://www.ip138.com/
+Connection: keep-alive
+
+
+

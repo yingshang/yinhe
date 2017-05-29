@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required   #auth
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from forms import *
-from models import UserInfo
+from models import UserInfo,Result
 import json
 from result import wyproxy_request_handle,wyproxy_response_handle
-import time
+from autosqlmap import autosqli
 from scan.tasks import scan
 from django.http.response import HttpResponse, HttpResponseRedirect
 from mitmproxy import flow, proxy, controller, options
 from mitmproxy.proxy.server import ProxyServer
+import os
 # Create your views here.
 #@csrf_exempt
 
@@ -33,7 +35,6 @@ class WYProxy(flow.FlowMaster):
 
     @controller.handler
     def response(self, f):
-        
         wyproxy_response_handle(f)
         #parser = ResponseParser(f)
         #insert_result(parser.parser_data())
@@ -80,12 +81,46 @@ def capture(request):
         capture_form = cap()
     return render(request,'capture.html',{'capture_form':capture_form})
 
+def run(request):
+    inject = autosqli()
+    inject.new_taskid()
+    inject.start_scan()
+    pass
+def capture_data(request):
+    results = Result.objects.all()
+    print results
+    return render_to_response("capture_data.html",locals())
+def detail_data(request):
+    results = Result.objects.all()
+    return render_to_response("detail_data.html",locals())
 
-@login_required
+def del_data(request,id):
+    delete = Result.objects.get(id=id).delete()
+    results = Result.objects.all()
+    return render_to_response("capture_data.html",locals())
+
+def flush_data(request):
+    flush = Result.objects.all().delete()
+    return render_to_response("capture_data.html",locals())
+def sqli(request,taskid):
+    data = autosqli(taskid=taskid)
+    status = data.data_scan()
+    
+    return render_to_response("sqli.html",locals())
+def sqli_detail(request,taskid):
+    data = autosqli(taskid=taskid)
+    status = data.sqli_detail()
+    return render_to_response("sqli_detail.html",locals())
+
+#@login_required
+@csrf_exempt
 def getScan(request):
-    data = []
-    host = request.POST['host']
-    #arguments = request.POST['arguments']
-    port = request.POST['port']
-    scan(host,port)
-    return JsonResponse(data,safe=False)
+    if request.method == 'POST':
+        form = nm(request.POST)
+        if form.is_valid():
+            host= form.cleaned_data['host']
+            port = form.cleaned_data['port']        
+            data = scan(host,port)
+    else:
+        form = nm()
+    return render_to_response("nmap.html",locals())
