@@ -5,6 +5,11 @@
 ### ubuntu
 
 ```
+apt-get install python-pip python-dev build-essential 
+pip install --upgrade pip
+
+```
+```
 cd /opt/
 git clone https://github.com/yingshang/yinhe.git
 ```
