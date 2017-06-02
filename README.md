@@ -19,5 +19,17 @@ pip  install -r requirements.txt
 mysql> create database yinhe;
 Query OK, 1 row affected (0.00 sec)
 
-
 ```
+
+启动服务
+```
+root@ubuntu:/opt/yinhe# python manage.py runserver 0.0.0.0:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 02, 2017 - 16:41:40
+Django version 1.9.2, using settings 'yinhe.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+```
+打开网页127.0.0.1:8000/capture,直接监听端口就可以
