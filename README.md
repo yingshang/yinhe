@@ -37,7 +37,16 @@ Quit the server with CONTROL-C.
 ![](https://github.com/yingshang/yinhe/blob/master/docs/images/1.png)
 ![](https://github.com/yingshang/yinhe/blob/master/docs/images/2.png)
 
-## 注意：使用centos不能抓取https数据包，原因不明，具体可以到这里了解
-'''
+### 注意：使用centos不能抓取https数据包，原因不明，具体可以到这里了解
+```
 https://github.com/mitmproxy/mitmproxy/issues/1608
-'''
+```
+然后对抓取到数据包进行测试，启动sqlmapapi
+```
+[root@localhost sqlmap]# python sqlmapapi.py -s
+[17:06:54] [INFO] Running REST-JSON API server at '127.0.0.1:8775'..
+[17:06:54] [INFO] Admin ID: b42d7d50acd25053b2f6ea5e3c839095
+[17:06:54] [DEBUG] IPC database: '/tmp/sqlmapipc-yyzZdy'
+[17:06:54] [DEBUG] REST-JSON API server connected to IPC database
+[17:06:54] [DEBUG] Using adapter 'wsgiref' to run bottle
+```
