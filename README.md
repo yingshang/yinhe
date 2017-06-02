@@ -36,3 +36,8 @@ Quit the server with CONTROL-C.
 数据包
 ![](https://github.com/yingshang/yinhe/blob/master/docs/images/1.png)
 ![](https://github.com/yingshang/yinhe/blob/master/docs/images/2.png)
+
+## 注意：使用centos不能抓取https数据包，原因不明，具体可以到这里了解
+'''
+https://github.com/mitmproxy/mitmproxy/issues/1608
+'''
