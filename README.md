@@ -5,7 +5,7 @@
 ### ubuntu
 
 ```
-apt-get install python-pip python-dev build-essential libmysqlclient-dev
+apt-get install -y python-pip python-dev build-essential libmysqlclient-dev libssl-dev
 pip install --upgrade pip
 
 ```
