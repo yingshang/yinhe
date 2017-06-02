@@ -33,3 +33,6 @@ Starting development server at http://0.0.0.0:8000/
 Quit the server with CONTROL-C.
 ```
 打开网页127.0.0.1:8000/capture,直接监听端口就可以
+数据包
+![](https://github.com/yingshang/yinhe/blob/master/docs/images/1.png)
+![](https://github.com/yingshang/yinhe/blob/master/docs/images/2.png)
