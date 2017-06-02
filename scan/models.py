@@ -60,7 +60,7 @@ class Result(models.Model):
     response_content = models.TextField(default='')
     date =models.TimeField(auto_now=True)
     request_content = models.TextField()
-    http_version = models.CharField(max_length=20)
+    http_version = models.CharField(max_length=20,default='')
 '''
     def __unicode__(self):
         return self.method+'  '+self.url+' '+self.http_version+'\n'+self.request_headers+'\n\n'+self.request_content
