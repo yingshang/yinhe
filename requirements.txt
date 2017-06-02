@@ -7,7 +7,6 @@ backports-abc==0.5
 backports.ssl-match-hostname==3.5.0.1
 billiard==3.3.0.23
 blinker==1.4
-blivet==0.61.15.59
 Brlapi==0.6.0
 brotlipy==0.6.0
 celery==3.1.25
