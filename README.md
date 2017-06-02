@@ -50,3 +50,7 @@ https://github.com/mitmproxy/mitmproxy/issues/1608
 [17:06:54] [DEBUG] REST-JSON API server connected to IPC database
 [17:06:54] [DEBUG] Using adapter 'wsgiref' to run bottle
 ```
+使用dvwa进行测试
+运行127.0.0.1:8000/run,后台就会自动对数据包进行测试
+http://127.0.0.1:8000/sqli/       #更新漏洞状态
+http://127.0.0.1:8000/sqli_detail/fa4b6a8aec1c11db    #显示漏洞情况
