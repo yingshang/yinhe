@@ -37,10 +37,7 @@ Quit the server with CONTROL-C.
 ![](https://github.com/yingshang/yinhe/blob/master/docs/images/1.png)
 ![](https://github.com/yingshang/yinhe/blob/master/docs/images/2.png)
 
-### 注意：使用centos不能抓取https数据包，原因不明，具体可以到这里了解
-```
-https://github.com/mitmproxy/mitmproxy/issues/1608
-```
+
 然后对抓取到数据包进行测试，启动sqlmapapi
 ```
 [root@localhost sqlmap]# python sqlmapapi.py -s
@@ -55,3 +52,14 @@ https://github.com/mitmproxy/mitmproxy/issues/1608
 http://127.0.0.1:8000/sqli/       #更新漏洞状态
 http://127.0.0.1:8000/sqli_detail/fa4b6a8aec1c11db    #显示漏洞情况
 ![](https://github.com/yingshang/yinhe/blob/master/docs/images/3.bmp)
+
+## 已知漏洞
+1.
+### 注意：使用centos不能抓取https数据包，原因不明，具体可以到这里了解
+```
+https://github.com/mitmproxy/mitmproxy/issues/1608
+```
+2.
+使用0.0.0.0抓取局域网的数据包，抓不了，用127.0.0.1访问就可以抓包，但是都可以抓包外网的数据包
+## ChangeLog
+2017.6.2  write reports
