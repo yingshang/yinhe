@@ -7,6 +7,7 @@
 ```
 apt-get install -y python-pip python-dev build-essential libmysqlclient-dev libssl-dev
 apt-get install -y mysql-server
+apt-get install -y libxml2-dev libxslt1-dev
 pip install --upgrade pip
 ```
 下载源码
@@ -19,5 +20,6 @@ pip  install -r requirements.txt
 ```
 mysql> create database yinhe;
 Query OK, 1 row affected (0.00 sec)
+
 
 ```
