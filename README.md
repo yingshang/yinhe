@@ -6,6 +6,7 @@
 
 ```
 apt-get install -y python-pip python-dev build-essential libmysqlclient-dev libssl-dev
+apt-get install mysql-server
 pip install --upgrade pip
 
 ```
