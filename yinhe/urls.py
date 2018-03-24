@@ -17,17 +17,16 @@ from django.conf.urls import url
 from django.contrib import admin
 #from django.contrib.auth import views as login_views
 from scan import views as scan_views
+from scan import sqlinjection
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^login/',login_views.login,{'templates':'login.html'},name='login'),
-    url(r'^login/',scan_views.login),
     url(r'^capture/',scan_views.capture),
-    url(r'^getscan/',scan_views.getScan),
-    url(r'^run/',scan_views.run),
-    url(r'^capture_data/',scan_views.capture_data),
-    url(r'^detail_data/',scan_views.detail_data),
-    url(r'^del_data/(?P<id>\d+)/',scan_views.del_data),
-    url(r'^flush_data/',scan_views.flush_data),
-    url(r'^sqli/(?P<taskid>\w+)',scan_views.sqli),
-    url(r'^sqli_detail/(?P<taskid>\w+)',scan_views.sqli_detail),
+    url(r'^start_scan/',scan_views.start_scan),
+    #url(r'^index/',scan_views.capture_data),
+    #url(r'^detail_data/$',scan_views.detail_data),
+    #url(r'^del_data/(?P<id>\d+)',scan_views.del_data),
+    #url(r'^flush_data/',scan_views.flush_data),
+    #url(r'^sqli/(?P<taskid>\w+)/$',scan_views.sqli),
+    #url(r'^sqli_detail/(?P<taskid>\w+)/$',scan_views.sqli_detail),
 ]

@@ -1,52 +1,39 @@
-from __future__ import unicode_literals
-
 from django.db import models
-
+import datetime
 # Create your models here.
-class scan(models.Model):
-    host = models.CharField(max_length=20)
-    hostname = models.CharField(max_length=100,blank=True)
-    hostname_type = models.CharField(max_length=20)
-    port = models.CharField(max_length=20)
-    protocol = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-    status = models.CharField(max_length=10)
-    product = models.CharField(max_length=40)
-    extrainfo = models.CharField(max_length=40)
-    reason = models.CharField(max_length=40)
-    version = models.CharField(max_length=40)
-    conf = models.CharField(max_length=40)
-    cpe = models.CharField(max_length=40)
-    time = models.DateField()
 
-class UserInfo(models.Model):
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    mail = models.EmailField(max_length=50)
-    def __unicode__(self):
-        return self.username
-
-class Sqlmap(models.Model):
+class inject_data(models.Model):
     taskid = models.CharField(max_length=50)
-    packet = models.TextField()
+    packet = models.TextField(default='')
     url = models.TextField(default='')
     query = models.TextField(default='')
-    post_data = models.TextField(default='',null=True)
+    post_data = models.TextField(default='', null=True)
     dbms = models.TextField(default='')
     suffix = models.TextField(default='')
+    run_status = models.CharField(max_length=50,default='')
+    status = models.CharField(max_length=10,default='0')
     options = models.TextField(default='')
-    clause = models.CharField(max_length=20,default='')
+    clause = models.CharField(max_length=20, default='')
     notes = models.TextField(default='')
-    ptype = models.CharField(max_length=20,default='')
-    dbms_version = models.CharField(max_length=20,default='')
-    prefix =models.TextField(default='')
+    ptype = models.CharField(max_length=20, default='')
+    dbms_version = models.CharField(max_length=20, default='')
+    prefix = models.TextField(default='')
     place = models.TextField(default='')
-    os = models.TextField(default='',null=True)
-    parameter =models.CharField(max_length=20,default='')
+    vul_info = models.CharField(max_length=100,default='')
+    os = models.TextField(default='', null=True)
+    parameter = models.CharField(max_length=20, default='')
     detail = models.TextField(default='')
+    time = models.DateTimeField(default=datetime.datetime.now())
 
 
-class Result(models.Model):
+class filter_data(models.Model):
+    data_packet = models.TextField()
+    url = models.CharField(max_length=500)
+    parm = models.TextField()
+    status = models.CharField(max_length=10,default='0')
+    taskid = models.CharField(max_length=100,default='')
+
+class proxy_data(models.Model):
     host = models.TextField(default='')
     url = models.TextField(default='')
     method = models.CharField(max_length=20,default='')
@@ -60,8 +47,7 @@ class Result(models.Model):
     response_content = models.TextField(default='')
     date =models.TimeField(auto_now=True)
     request_content = models.TextField()
-    http_version = models.CharField(max_length=20,default='')
-'''
-    def __unicode__(self):
-        return self.method+'  '+self.url+' '+self.http_version+'\n'+self.request_headers+'\n\n'+self.request_content
-'''
+    http_version = models.CharField(max_length=20)
+
+class config(models.Model):
+    name = models.CharField(max_length=100)

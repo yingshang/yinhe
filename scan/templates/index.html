@@ -31,13 +31,13 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="/home">银河</a>
+  <a class="navbar-brand" href="/">银河战舰</a>
 </div>
 
 <div id="navbar" class="navbar-collapse collapse">
 <ul class="nav navbar-nav navbar-right">
     <li><a href="/settings">系统设置</a></li>
-    <li><a href="https://github.com/ring04h/wyproxy" target="_blank">帮助</a></li>
+    <li><a href="" target="_blank">帮助</a></li>
   </ul>
 
 <form class="navbar-form navbar-right" action='/q?'>         
@@ -71,15 +71,15 @@
 
 {% for result in results %}
 <tr>
-<td><a href="/r?id={{result.id}}" target="_blank">#{{result.id}}</a></td>
+<td><a href="/detail_data/?id={{result.id}}" target="_blank">#{{result.id}}</a></td>
 <td>{{result.host }}:{{result.port}}</td>
 <td>{{result.method}}</td>
 <td>{{result.path }}</td>
-<td><a href="/q?s=content_type:{{result.content_type}}">{{result.content_type}}</a></td>
+<td>{{result.scheme}}</td>
 <td>{{result.status_code}}</td>
 <td>{{result.date}}</td>
 <td>
-<a class="btn btn-default btn-xs" href="/r?id={{result.id}}" target="_blank" role="button">查看回放</a>
+<a class="btn btn-default btn-xs" href="/detail_data/?id={{result.id}}" target="_blank" role="button">查看回放</a>
 <a class="btn btn-danger btn-xs" href="/del?id={{result.id}}" role="button">删除</a></td>
     </tr>
 {% endfor %}

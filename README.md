@@ -63,3 +63,6 @@ https://github.com/mitmproxy/mitmproxy/issues/1608
 使用0.0.0.0抓取局域网的数据包，抓不了，用127.0.0.1访问就可以抓包，但是都可以抓包外网的数据包
 ## ChangeLog
 2017.6.2  write reports
+
+
+python manage.py celery -A yinhe worker -l info --beat
