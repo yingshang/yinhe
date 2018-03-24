@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">WYPROXY Dashboard</a>
+          <a class="navbar-brand" href="/">银河战舰 Dashboard</a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
@@ -110,12 +110,12 @@
 <div class="form-group">
     <label class="col-sm-1 control-label">Type</label>
     <div class="col-sm-3">
-      <input type="text" class="form-control" value="{{result.content_type}}">
+      <input type="text" class="form-control" value="{{result.scheme}}">
     </div>
 
     <label class="col-sm-1 control-label">Datetime</label>
     <div class="col-sm-3">
-      <input type="datetime" class="form-control" value="{{result.date_start}}">
+      <input type="datetime" class="form-control" value="{{result.date}}">
     </div>
 
   </div>
@@ -139,10 +139,10 @@
   <div class="form-group">
     <label class="col-sm-1 control-label">HTTP Header</label>
     <div class="col-sm-8">
-{% set request_headers = result.request_header | json_dumps %}
-<textarea class="form-control" rows="10">{% if request_headers %}
-{% for key,value in request_headers.iteritems() %}{{key}}: {{value}}
-{% endfor %}{% endif %}</textarea>
+
+<textarea class="form-control" rows="10">
+
+      </textarea>
     </div>
   </div>
 
@@ -150,7 +150,7 @@
     <label class="col-sm-1 control-label">Query String</label>
     <div class="col-sm-8">
 <textarea class="form-control" rows="5">
-{% if result.request_content %}{{result.request_content|to_unicode}}{% endif %}
+
 </textarea>
     </div>
   </div>
@@ -165,10 +165,10 @@
 <div class="form-group">
 <label class="col-sm-1 control-label">Response Header</label>
 <div class="col-sm-8">
-{% set headers = result.header | json_dumps %}
-<textarea class="form-control" rows="8">{% if headers %}
-{% for key,value in headers.iteritems() %}{{key}}: {{value}}
-{% endfor %}{% endif %}</textarea>
+
+<textarea class="form-control" rows="8">
+
+      </textarea>
     </div>
   </div>
 
@@ -176,7 +176,8 @@
     <label class="col-sm-1 control-label">Response Content</label>
     <div class="col-sm-8">
 <textarea class="form-control" rows="12">
-{% if result.content %}{{result.content|to_unicode}}{% endif %}</textarea>
+
+      </textarea>
 </div>
   </div>
 
@@ -231,11 +232,8 @@
 
 <div class="form-group">
 <div class="col-sm-12">
-{% set request_headers = result.request_header | json_dumps %}
-<textarea class="form-control" id="message-text" rows="15" name='msg'>{% if request_headers %}
-{% for key,value in request_headers.iteritems() %}{{key}}: {{value}}
-{% endfor %}{% endif %}
-{% if result.request_content %}{{result.request_content|to_unicode}}{% endif %}</textarea>
+
+<textarea class="form-control" id="message-text" rows="15" name='msg'></textarea>
 </div></div>
 
 </div>
@@ -255,7 +253,7 @@
 <hr>
 
 <footer class="footer">
-<p>&copy; 贝塔科技 2016</p>
+<p>&copy; 2018</p>
 </footer>
 
 </div> <!-- /container -->
