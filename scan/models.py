@@ -51,3 +51,7 @@ class proxy_data(models.Model):
 
 class config(models.Model):
     name = models.CharField(max_length=100)
+
+class nmap_result(models.Model):
+    hostname = models.CharField(max_length=100)
+    IP = models.CharField(max_length=100)

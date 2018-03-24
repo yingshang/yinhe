@@ -23,6 +23,7 @@ urlpatterns = [
     #url(r'^login/',login_views.login,{'templates':'login.html'},name='login'),
     url(r'^capture/',scan_views.capture),
     url(r'^start_scan/',scan_views.start_scan),
+    url(r'^nm_scan/',scan_views.nm_scan),
     #url(r'^index/',scan_views.capture_data),
     #url(r'^detail_data/$',scan_views.detail_data),
     #url(r'^del_data/(?P<id>\d+)',scan_views.del_data),

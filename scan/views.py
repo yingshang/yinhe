@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from mitmproxy import flow, proxy, controller, options
 from mitmproxy.proxy.server import ProxyServer
 from scan.proxy import WSProxy
@@ -9,6 +9,7 @@ from scan.models import filter_data,proxy_data
 from scan.sqlinjection import inject_data
 #set proxy capture data
 
+from nm import nmap_scan
 
 def capture(request):
     port = request.GET.get('port',8888)  #
@@ -50,3 +51,8 @@ def display_data(request):
     datas = proxy_data.objects.all()
     return render(request, 'display_data.html', locals())
 
+
+def nm_scan(request):
+    host = request.GET.get('host')
+    nmap_scan.delay(host)
+    return JsonResponse({"message":"success"})
