@@ -172,14 +172,14 @@ class autosqli(object):
                         result.packet = filter_data.objects.get(taskid=result.taskid).data_packet
                         result.url =url1
                         result.dbms= dbms
-                        result.vul_info = '存在漏洞'
+                        result.vul_info = 'YES'
                         result.parameter = parameter
                         result.status = status
                         result.run_status = run_status
                         result.save()
                     else:
                         result.status = '1'
-                        result.vul_info = '不存在漏洞'
+                        result.vul_info = 'NO'
                         result.run_status = run_status
                         result.save()
             elif run_status == 'running':
